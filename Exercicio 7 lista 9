@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+
+
+
+
+
+void questao07 (int n,int a, int b)
+{
+	
+	int i,j,cont=0,divisores;
+	
+	for(i=a,i<=b;i++)
+	{
+		//verificando os divisores comuns
+		for(j=2;j<=n;j++)
+		{
+			if ( (n%j == 0) && (i%j == 0)
+			{
+				divisores++;
+			}
+		}
+			if (divisores>0)
+	{
+		cont++;
+	}
+	}
+
+	return cont
+}
+void main ()
+
+int valor,inferior,superior;
+
+printf("Entre com um numero: ");
+scanf ("%d",& valor)
+printf("Entre com um limite inferior do intervalo: ");
+scanf ("%d",& inferior)
+printf("Entre com um limite superior do intervalo: ");
+scanf ("%d",& superior)
+
+
+printf("%d,%d,%d"valor,inferior,superior)
