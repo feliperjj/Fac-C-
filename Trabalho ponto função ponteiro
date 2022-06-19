@@ -1,0 +1,38 @@
+//Fazer uma função que permaneça lendo números reais até que o usuário forneça o valor -1. Ao final, retornar a quantidade de valores 
+  //lidos e o maior deles  Felipe Bento
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int questao04(int *maiorr,int *contt)
+{
+int n,f=0;
+
+do{
+
+printf("Digite um numero: ");
+scanf("%d",&n);
+
+if (n > *maiorr)
+*maiorr = n;
+f++;
+
+}while(n!=-1);
+
+*contt=f;
+
+
+
+
+}
+void main ()
+{
+int n,cont=0,maior=-999999;
+questao04(&maior,&cont);
+printf("O maior numero  : %d ",maior);
+printf("Numeros Digitados : %d ",cont);
+
+
+}
