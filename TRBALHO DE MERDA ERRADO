@@ -1,0 +1,220 @@
+#include<stdio.h>
+	
+    #define CAP 10
+	#define TRUE 1
+	#define FALSE 0
+	
+	
+
+	
+	int ordenar(int vetor[], int cap,int x);
+	void exibir (int vetor[], int tamanho);
+	int inserir(int vetor[],int cap, int num,int quant);
+	int buscar(int vetor[],int cap, int num, int quant,int tamanho);
+	void alterar(int vetor[],int cap, int num,int tamanho);
+	void remover(int vetor[],int cap, int num, int quant);
+	
+	
+	
+	int main ()
+	{
+	    int quant=0,num,al, posicao, vetor[CAP],tamanho;
+	
+	    do
+	    {
+	        printf("Escolha uma das alternativas:");
+	       
+		   printf("\n 2 - Para Remover");
+		   printf("\n 3 - Para Alterar");
+		   printf("\n 4 - Para Buscar");
+		   printf("\n 5 - Para Exibir");
+		   printf("\n 6 - Para parar o programa\n");
+	        scanf("%d", &al);
+	    
+	        switch(al)
+	        {
+	              case 1:
+	                      scanf("%d", &num);
+	                    inserir(vetor, CAP, num,quant);
+	                    quant++;
+	                break;
+	                
+	              case 2:
+	                      scanf("%d", &num);
+	                      remover(vetor, CAP, num,quant);
+	                      quant--;
+	                break;
+	                
+	                case 3:
+	                    scanf("%d", &num);
+	                      alterar(vetor, CAP, num,tamanho);
+	                break;
+	                
+	                case 4:
+	                    scanf("%d", &num);
+	                      posicao = buscar(vetor, CAP, num,quant,tamanho);
+	                    printf("%d", posicao);
+	                break;
+	                
+	                case 5:
+	                    exibir(vetor,tamanho);    
+	                break;
+	                    
+	              default:
+	                  printf("Esta opcao nao e' valida !");                                
+	        }
+	
+	    }while(al!=6);
+	}
+	
+	
+	
+	void exibir (int vetor[], int tamanho)//FEITO    
+	{
+	    //declaração de variáveis
+	    int i;
+	    
+	    printf ("\n\nElementos do vetor: ");
+	    
+	    //varrendo o vetor
+	    for (i=0;i<tamanho;i++)    
+	    {
+	        printf ("%d ", vetor[i]);
+	    }
+	    
+	    printf ("\n\n");
+	}
+	    
+	int buscar(int vetor[],int cap, int num,int quant,int tamanho)
+	{
+	   
+	    
+	
+			
+			//deslocando os elementos da posição 'pos' até a última (preenchida) uma posição para a direita
+		//declaração de variáveis
+		int i;
+		
+		//percorrendo o vetor
+		for (i=0;i<tamanho;i++)
+		{
+			//verificando se o valor buscado foi encontrado
+			if (vetor[i] == num)
+			{
+				return i;
+			}
+		}
+		
+		//elemento não encontrado
+		return -1;
+	}
+			
+	    
+	
+
+	
+	void alterar(int vetor[],int cap, int num,int tamanho)
+	{
+	    
+	    int i,j,aux;
+		for (i=0,j=1;j<tamanho;i=i+2,j=j+2)
+		{
+			
+			//trocar os elementos das posições 'i' e 'j' /
+			aux = vetor[i];
+			vetor[i] = vetor[j];
+			vetor[j] = aux;
+		}
+	    
+	}
+	
+	int inserir(int vetor[],int cap, int num,int quant)
+	{
+	    //declaração de variáveis
+		int pos, i;
+		
+		//verificando se o vetor já está cheio
+		if (quant== cap)
+		{
+			return FALSE;
+		}
+		else
+		{
+			//chamando a função de busca 
+			pos = inserir (vetor, quant, num,quant);
+			
+			//deslocando os elementos da posição 'pos' até a última (preenchida) uma posição para a direita
+			for (i=quant-1;i>=pos;i--)
+			{
+				vetor[i+1] = vetor[i];
+			}
+			
+			//inserindo 'numero' na posição 'pos'
+			vetor[pos] = num;
+			
+			//atualizar a quantidade
+			(quant)++;
+			
+			return TRUE;
+		}
+	}
+	    
+	    
+	
+	
+	void remover(int vetor[],int cap, int num,int quant)
+	{
+	    
+	    //declaração de variáveis
+		int i, pos, cont = 0;
+		
+		//percorrendo o vetor
+		for (i=0;i<quant;i++)
+		{
+			//verificando se o número foi encontrado
+			if (vetor[i] == num)
+			{
+				//deslocando os demais elementos uma posição para a esquerda
+				for (pos=i+1;pos<quant;pos++)
+				{
+					vetor[pos-1] = vetor[pos];
+				}
+				
+				//atualizando a quantidade de elementos no vetor
+				(quant)--;
+	    
+	}
+	
+	}
+}
+	
+	int ordenar(int vetor[], int cap,int x)
+	                                       {
+	    int i;
+		
+		//percorrendo o vetor
+		for (i=0;cap<x;i++)
+		{
+			//verificando se o elemento foi encontrado
+			if (vetor[i] == x)
+			{
+				return i;
+			}
+			else
+			{
+				//verificando se um elemento maior do que x foi encontrado
+				if (vetor[i] > x)
+				{
+					return i;
+				}
+			}
+			
+		}
+		
+		//se chegou aqui, significa que 'x' é maior do que todos os elementos do vetor
+		return x;
+	}
+	    
+	
+
+
