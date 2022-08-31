@@ -2,7 +2,7 @@
 
 void main (){
 	
-float saldo;	
+float saldo,credito;	
 	printf("Digite seu saldo medio:");
 	scanf ("%f",&saldo);
 	
@@ -14,17 +14,18 @@ float saldo;
 	}
 	else if (saldo <= 1499.99){
 		
+		credito = (0.2/100)*saldo;
+		printf("20% do saldo medio: %d",credito);
 		
-		printf("20% do saldo medio");
 	}
 	else if(saldo <= 2499.99){
-		
-		printf("30% do saldo medio");
+		credito = (0.3/100)*saldo;
+		printf("30% do saldo medio:  %d",credito");
 		
 	}
 	else{
-		
-		printf("40% do saldo medio");
+		credito = (0.4/100)*saldo;
+		printf("40% do saldo medio:  %d",credito");
 	}
 	
 	
