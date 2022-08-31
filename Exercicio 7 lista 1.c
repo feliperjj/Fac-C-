@@ -19,7 +19,7 @@ int main()
 	}
 	else(horas > 40);
 	
-	salario =salario+(valor*50)/100;
+	salario =40*valor +(horas - 40) * valor * 1.5;
 	
 
 
