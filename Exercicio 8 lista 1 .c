@@ -22,19 +22,19 @@ int main(){
 		
 		case 'A':
 		case 'a':	
-			diaria = 350.00;
+			diaria = 350.00*ndiaria;
 		break;
 		case 'B':
 		case 'b':
-		diaria = 275.00;
+		diaria = 275.00*ndiaria;
 		break;
 		case 'C':
 		case 'c':
-		diaria = 200.00;
+		diaria = 200.00*ndiaria;
 		break;
 		case 'D':
 		case 'd':
-		diaria = 100.00;
+		diaria = 100.00*ndiaria;
 		break;	
 		default:
 			printf("Escolha Invalida!!!");
@@ -44,7 +44,7 @@ int main(){
 	diaria = diaria * ndiarias;
 	subtot = diaria+consumo;
 	total = diaria+consumo+taxa;
-	taxa = diaria-(total * 10)/100;
+	taxa = diaria-(total * 0,10)/100;
 	
 	printf("\n Nome do Cliente: %s" ,nome);
 	printf("\n Tipo de Apartamento: %c" ,tipo);
