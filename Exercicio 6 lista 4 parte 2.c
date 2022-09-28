@@ -1,5 +1,11 @@
 #include <stdio.h>
-
+//Faça um programa que leia um
+//número N inteiro, menor ou igual a 18. Se for
+//maior do que 18, o programa exibirá uma
+//mensagem de erro e terminará a sua
+//execução; caso contrário, deverá exibir os
+//números no intervalo de 1 a 99 cujos
+//algarismos somem N.//
 	
 	
 	
