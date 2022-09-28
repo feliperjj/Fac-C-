@@ -11,7 +11,7 @@ int main(){
 	scanf("%d",&n);
 	printf("Digite o y");
 	scanf("%d",&y);
-	for(i=0;i<n;i++){
+	for(i=0;i<y;i++){
 		if(n%y==0){
 			
 			printf("%d \n",i);
