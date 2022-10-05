@@ -3,17 +3,14 @@
 
 int main(){
 	
-	int n=100,i;
+	int n,i,termo=1,razao=1;
 	
 	
 	for(i=1;i<=n;i+=i){
 		
-		printf("%d \n",i);
-		
-		
-		
-		
-		
-		
+	printf("%d",termo);
+	razao*=2;
+	
+	termo *= razao;
 	}
 }
