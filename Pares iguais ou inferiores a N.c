@@ -1,3 +1,6 @@
+\*Dado um número inteiro N, fazer um
+programa que exiba os números pares
+iguais ou inferiores a N.*/
 #include <stdio.h>
 
 
