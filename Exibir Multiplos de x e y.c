@@ -1,3 +1,7 @@
+\*Faça um programa que leia um
+número inteiro positivo N e exiba todos os
+múltiplos de Y inferiores a N, onde N e Y são
+fornecidos pelo usuário.      */
 #include <stdio.h>
 
 int main(){
