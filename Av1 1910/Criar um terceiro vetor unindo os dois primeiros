@@ -1,0 +1,106 @@
+/*
+	FAETERJ-Rio
+	FAC - Turma B - Professor Leonardo Vianna
+	2022/2 - Data: 23/11/2022
+	
+	Lista de Exercícios XI (Vetores)
+	
+	QUESTÃO 10: 
+	Fazer um função que, dados dois vetores A e B com números inteiros, 
+	gerar o vetor C que consiste na união dos dois primeiros.
+	
+	Nota: considerar que não existe repetição no conjunto A, nem no 
+	conjunto B.
+*/
+
+//importação de bibliotecas
+#include <stdio.h>
+
+//definição de constantes
+#define TAM 50
+
+#define TRUE 1
+#define FALSE 0
+
+//protótipos de funções
+void uniao (int vetA[], int tamA, int vetB[], int tamB, int vetC[], int *tamC);
+
+int buscar (int vetor[], int tamanho, int numero);
+void exibirVetor (int vetor[], int tamanho);
+
+//main
+void main ()
+{
+	//declaração de variáveis
+	int A[5] = {5,10,7,4,2}	;
+	int B[3] = {8,10,5};
+	int C[8];
+	int quantC;
+
+	//chamando a função 'uniao'
+	uniao (A, 5, B, 3, C, &quantC);
+
+	//exibindo os vetores
+	exibirVetor (A, 5);
+	exibirVetor (B, 3);
+	exibirVetor (C, quantC);
+}
+
+//implementação das funções
+void exibirVetor (int vetor[], int tamanho)
+{
+	//declaração de variáveis
+	int i;
+	
+	printf ("\nVetor: ");
+	
+	for (i=0;i<tamanho;i++)
+	{
+		printf ("%d ", vetor[i]);
+	}
+	
+	printf ("\n\n");
+}
+
+void uniao (int vetA[], int tamA, int vetB[], int tamB, int vetC[], int *tamC)
+{
+	//declaração de variáveis
+	int i, j;
+	
+	//copiando todos os valores de 'vetA' para 'vetC'
+	for (i=0;i<tamA;i++)
+	{
+		vetC[i] = vetA[i];
+	}
+	
+	//copiando para 'vetC' os elementos de 'vetB' que não estão em 'vetA'
+	for (j=0;j<tamB;j++)
+	{
+		if (buscar (vetA, tamA, vetB[j]) == FALSE)
+		{
+			vetC[i] = vetB[j];
+			i++;
+		}
+	}
+	
+	//salvando em 'tamC' a quantidade de elemento de 'vetC'
+	*tamC = i;
+}
+
+int buscar (int vetor[], int tamanho, int numero)
+{
+	//declaração de variáveis
+	int i;
+	
+	//percorrendo o vetor
+	for (i=0;i<tamanho;i++)
+	{
+		//verificando se o valor foi encontrado
+		if (vetor[i] == numero)
+		{
+			return TRUE;
+		}
+	}
+	
+	return FALSE;
+}
