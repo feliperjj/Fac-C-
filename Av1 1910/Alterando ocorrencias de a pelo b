@@ -1,0 +1,106 @@
+/*
+	FAETERJ-Rio
+	FAC - Turma B - Professor Leonardo Vianna
+	2022/2 - Data: 23/11/2022
+	
+	Lista de Exercícios XI (Vetores)
+	
+	QUESTÃO 06: 
+	Faça uma função que, dado um vetor de reais, altere todas as 
+	ocorrências do número A pelo número B. 
+*/
+
+//importação de bibliotecas
+#include <stdio.h>
+
+//definição de constantes
+#define TAM 50
+
+//protótipos de funções
+int alterar (int vetor[], int tamanho, int velho, int novo);
+
+void exibirVetor (int vetor[], int tamanho);
+void preencherAleatorio (int vetor[], int tamanho);
+
+//main
+void main ()
+{
+	//declaração de variáveis
+	int v[TAM];
+	int quantidade, num1, num2;
+
+	//preenchendo o vetor aleatoriamente
+	preencherAleatorio (v, TAM);
+	
+	//exibindo o vetor
+	exibirVetor (v, TAM);
+	
+	//perguntando os valores envolvidos na alteração
+	printf ("\n\nEntre com o numero a ser alterado: ");
+	scanf ("%d", &num1);
+	
+	printf ("\n\nPor qual valor sera alterado: ");
+	scanf ("%d", &num2);
+	
+	//chamando a função	
+	quantidade = alterar (v, TAM, num1, num2);
+	
+	//exibindo a quantidade de alterações feitas
+	printf ("\nForam alteradas %d ocorrencia de %d por %d\n", quantidade, num1, num2);
+
+	//exibindo o vetor após a alteração
+	exibirVetor (v, TAM);
+}
+
+//implementação das funções
+void exibirVetor (int vetor[], int tamanho)
+{
+	//declaração de variáveis
+	int i;
+	
+	printf ("\nVetor: ");
+	
+	for (i=0;i<tamanho;i++)
+	{
+		printf ("%d ", vetor[i]);
+	}
+	
+	printf ("\n\n");
+}
+
+void preencherAleatorio (int vetor[], int tamanho)
+{
+	//declaração de variáveis
+	int i;
+	
+	//para garantir que as sequências geradas serão diferentes
+	srand (time (NULL));  //seed - semente
+	
+	//percorrendo o vetor
+	for (i=0;i<tamanho;i++)
+	{
+		vetor[i] = 1 + rand()%100;
+	}
+}
+
+int alterar (int vetor[], int tamanho, int velho, int novo)
+{
+	//declaração de variáveis
+	int i, cont = 0;
+	
+	//percorrendo o vetor
+	for (i=0;i<tamanho;i++)
+	{
+		//verificando se o 'velho' foi encontrado
+		if (vetor[i] == velho)
+		{
+			//altere-o pelo 'novo'
+			vetor[i] = novo;
+			
+			cont++;
+		}
+	}
+	
+	//retornando a quantidade de alterações realizadas
+	return cont;
+}
