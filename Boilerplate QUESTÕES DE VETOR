@@ -1,0 +1,61 @@
+#include <stdio.h>
+#<include <time.h>
+#define TAM 10
+void preencherAleatorio (int vetor[],int tamanho);
+void exibirVetor (int vetor[], int tamanho);
+
+int main(){
+	
+	
+	int vet[TAM];
+
+	
+
+	preencherAleatorio(vet,TAM);
+	exibirVetor(vet,TAM);
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void exibirVetor (int vetor[], int tamanho)
+{
+	//declaração de variáveis
+	int i;
+	
+	printf ("\nVetor: ");
+	
+	for (i=0;i<tamanho;i++)
+	{
+		printf ("%d ", vetor[i]);
+	}
+	
+	printf ("\n\n");
+}
+
+float preencherAleatorio (int vetor[], int tamanho)
+{
+	//declaração de variáveis
+	int i;
+	
+	//para garantir que as sequências geradas serão diferentes
+	srand (time (NULL));  //seed - semente
+	
+	//percorrendo o vetor
+	for (i=0;i<tamanho;i++)
+	{
+		vetor[i] = 1 + rand()%10;
+	}
+}
