@@ -4,7 +4,7 @@ int main(){
 	printf("Insira um numero:  ");
 	scanf("%d", &num);
 
-//Vers„o While
+//Vers√£o While
 i=1;
 while (i<=1000){
 	pim=i;
@@ -17,7 +17,7 @@ while (i<=1000){
 		i++;
 }
 
-//Vers„o do While
+//Vers√£o do While
 /*i=1;
 do{
 	pim=i;
