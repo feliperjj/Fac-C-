@@ -13,6 +13,22 @@ _.` `._.` `._.` `._.` `._.` `._.` `._.` `._.` `._.` `._.` `.
 
 _.` `._.` `._.` `._.` `._.` `._.` `._.` `._.` `._.` `._.` `.
 */ //Atividade 08
+/*
+1)Apresentar uma função que, dado um vetor
+de inteiros, calcule a média de seus valores;
+2) Desenvolver uma função que, dado um
+número inteiro num e um vetor de inteiros
+vet, exiba todos os elementos do vetor
+inferiores ou iguais a num;
+3) Implementar a main de forma que ela
+declare e preencha dois vetores de inteiros:
+vetA com 10 valores e vetB com 15. A main,
+a partir das funções desenvolvidas, deverá
+calcular a média dos elementos do vetor
+vetA e armazená-la em mediaA. Em seguida,
+apresentar os valores de vetB que sejam
+inferiores ou iguais ao valor de mediaA.
+*/
 
 #include <stdio.h>
 #define QUANT_A 10
