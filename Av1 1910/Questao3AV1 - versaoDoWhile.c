@@ -4,7 +4,7 @@ int main(){
 	printf("Insira um numero:  ");
 	scanf("%d", &num);
 
-//Vers„o do While
+//Vers√£o do While
 i=1;
 do{
 	pim=i;
