@@ -1,7 +1,8 @@
+// O objetivo do c√≥digo √© dar por extenso o nome de um n√∫mero inserido
 #include <stdio.h>
 void main ()
 {
-	//declaraÁ„o de vari·veis
+	//declara√ß√£o de vari√°veis
 	int n, i=1, alg1, alg2,alg3;
 	
 	//obtendo o valor de N
@@ -146,7 +147,7 @@ void main ()
 		printf(" e dois");
 		}else{
 			if (alg3==3){
-				printf(" e trÍs");
+				printf(" e tr√™s");
 			}
 			else{
 				if(alg3==4){
