@@ -13,7 +13,14 @@ _.` `._.` `._.` `._.` `._.` `._.` `._.` `._.` `._.` `._.` `.
 
 _.` `._.` `._.` `._.` `._.` `._.` `._.` `._.` `._.` `._.` `.
 */ //Atividade 05
-
+/*
+Fazer uma função que, dado um número inteiro
+n, armazene em um vetor todos os seus
+divisores.
+Apresentar também a função main que chamará
+esta função (e exibirá, em seguida, os divisores
+do valor anteriormente lido).
+*/
 #include <stdio.h>
 #define TAM 7
 
