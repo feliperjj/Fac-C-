@@ -1,0 +1,198 @@
+#include <stdio.h>
+#define TRUE 1
+#define FALSE 0
+//Fazer uma função que, dando um vetor com quant
+//elementos inteiros e duas posições pos1 e pos2,
+//determine:
+//i. O maior elemento da posição 0 à posição pos1;
+//ii. A quantidade de pares da posição pos1+1 à
+//posição pos2-1;
+//iii.A soma dos elementos da posição pos2 ao final
+//do vetor.
+//Observação: caso pos1 e/ou pos2 sejam posições
+//inválidas, a função deverá retornar 0 (e não calcular
+//nenhum dos itens acima); caso contrário, calculará o
+//que foi solicitado e, ao final, retornará o valor 1.
+
+int calcularVetor (int vetor[], int tamanho, int pos1, int pos2, int *maiorElemento, int *quantPares, int *somaElementos);
+void preencherAleatorio (int vetor[], int tamanho);
+void exibir (int vetor[], int tamanho);
+//EXEMPLO 1 
+void main ()
+{
+	int quant, vetor[quant], posInf, posSup, validar, maiorElemento = -99, quantPares = 0, somaElementos = 0;
+	
+	printf ("Entre com o tamanho do vetor: ");
+	scanf ("%d", &quant);
+	printf ("Entre com uma posicao inferior: ");
+	scanf ("%d", &posInf);
+	printf ("Entre com uma posicao maior que a anterior: ");
+	scanf ("%d", &posSup);
+	
+	validar = calcularVetor (vetor, quant, posInf, posSup, &maiorElemento, &quantPares, &somaElementos);
+	
+	if (validar == FALSE)
+	{
+		printf ("\n%d", FALSE);
+		printf ("\n\nO numero da posicao inferior ou superior e' invalida.");
+	}
+	else
+	{
+		
+		printf ("%d\n", TRUE);
+		printf ("\nO maior numero: %d\n", maiorElemento);
+		printf ("Quantidade de pares: %d\n", quantPares);
+		printf ("Soma dos valores finais: %d\n", somaElementos);
+	}
+}
+
+int calcularVetor (int vetor[], int tamanho, int pos1, int pos2, int *maiorElemento, int *quantPares, int *somaElementos)
+{
+	int i;
+	int maior, par, soma;
+	
+	maior = *maiorElemento;
+	par = *quantPares;
+	soma = *somaElementos;
+	
+	if ((pos1 < 0) || (pos2 >= tamanho))
+	{
+		return FALSE;
+	}
+	else
+	{
+		preencherAleatorio (vetor, tamanho);
+		
+		for (i = 0; i <= pos1; i++)
+		{
+			if (vetor[i] >= maior)
+			{
+				maior = vetor[i];
+			}
+		}
+		
+		for (i = pos1 + 1; i <= pos2 - 1; i++)
+		{
+			if (vetor[i] % 2 == 0)
+			{
+				par++;
+			}
+		}
+		
+		for (i = pos2; i < tamanho; i++)
+		{
+			soma = soma + vetor[i];
+		}
+		
+		//so pra visualizar o vetor.
+		exibir (vetor, tamanho);
+		
+		*maiorElemento = maior;
+		*quantPares = par;
+		*somaElementos = soma;
+
+		return TRUE;
+	}
+}
+
+
+
+
+void preencherAleatorio (int vetor[], int tamanho)
+{
+
+	int i;
+	
+	srand (time(NULL));
+
+	for (i = 0; i < tamanho; i++)	
+	{
+		vetor[i] = rand () % 30;
+	}
+}
+
+void exibir (int vetor[], int tamanho)
+{
+	int i;
+	
+	printf ("\n\nElementos do vetor: ");
+	
+	for (i = 0; i < tamanho; i++)	
+	{
+		printf ("%d ", vetor[i]);
+	}
+	
+	printf ("\n\n");
+}
+
+//EXEMPLO 2 //EXEMPLO 2 //EXEMPLO 2 //EXEMPLO 2 //EXEMPLO 2//EXEMPLO 2//EXEMPLO 2//EXEMPLO 2//EXEMPLO 2//EXEMPLO 2//EXEMPLO 2//EXEMPLO 2//EXEMPLO 2//EXEMPLO 2//EXEMPLO 2//EXEMPLO 2//EXEMPLO 2//EXEMPLO 2//EXEMPLO 2//EXEMPLO 2//EXEMPLO 2
+#include <stdio.h>
+#define QUANT 10
+
+
+void posicoes(int vet[], int quant, int pos1, int pos2, int *maior, int *pares, int *soma)
+{
+	int i;
+	
+	
+	*maior= -1;
+	
+	if((pos1>quant) && (pos2>quant))
+    {
+        printf("Posicoes invalidas\n");
+    }
+    else
+    {
+        for(i=0;i<=pos1;i++)
+        {
+            if(vet[i]>*maior)
+            {
+                *maior=vet[i];
+            }
+        }
+        
+        *pares=0;
+        
+        for(i=pos1+1;i<pos2;i++)
+        {
+            if(vet[i]%2==0)
+            {
+                *pares=*pares+1;
+            }
+        }
+        
+        *soma=0;
+        
+        for(i=pos2;i<quant;i++)
+        {
+            *soma=*soma+vet[i];
+        }
+    }
+	
+	
+}
+
+
+
+void main ()
+{
+    int v[10], pos1, pos2, maior, pares, soma, i;	
+    
+    
+    for ( i = 0; i < QUANT; i++)
+    {	
+    	printf("Digite um valor: ");
+        scanf("%d", &v[i]);
+    }
+    printf("\nDigite a primeira posicao: ");
+    scanf("%d", &pos1);
+    
+    printf("Digite a segunda posicao: ");
+    scanf("%d", &pos2);
+    
+    posicoes(&v, QUANT, pos1, pos2, &maior, &pares, &soma);
+    
+    printf("\nO maior elemento da posicao 0 a %d e: %d\n", pos1, maior);
+    printf("\nA quantidade de pares da posicao %d a %d e: %d\n", pos1 + 1, pos2 - 1, pares);
+    printf("\nA soma dos elementos da posicao %d ao final do vetor e: %d\n", pos2, soma);
+}
