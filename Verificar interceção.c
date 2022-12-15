@@ -224,7 +224,53 @@ void altera_vetor(double v[], int n) {
             // Se a posição for ímpar, diminuir uma unidade
             // de seu val
 
+///////////////////////////////////////////////////////
 
+//Faça uma função que, dado um vetor de inteiros,
+//desloque os valores das posições p1 a p2 n posições
+//para a direita.
+//Observação: caso não seja possível o deslocamento, a
+//função deverá retornar 0; caso contrário, o deslocamento
+//será realizado e o valor 1 retornado pela função.
+
+
+int shift_right(int n, int *vector, int p1, int p2, int num_positions) {
+  if (p1 < 0 || p2 >= n || p1 > p2) {
+    // Verificar se os índices p1 e p2 são válidos
+    return 0;
+  }
+
+  if (p2 + num_positions >= n) {
+    // Verificar se é possível realizar o deslocamento
+    return 0;
+  }
+
+  // Salvar os valores das posições p1 a p2 em uma
+  // sequência temporária
+  int temp[p2 - p1 + 1];
+  for (int i = p1; i <= p2; i++) {
+    temp[i - p1] = vector[i];
+  }
+
+  // Deslocar os valores para a direita
+  for (int i = p2; i >= p1; i--) {
+    vector[i + num_positions] = vector[i];
+  }
+
+  // Inserir os valores salvos na sequência temporária
+  // nas novas posições
+  for (int i = 0; i < p2 - p1 + 1; i++) {
+    vector[p1 + i] = temp[i];
+  }
+
+  return 1;
+}
+
+//Nesta função, primeiro são verificados se os índices p1 e p2 são válidos e se é possível realizar o deslocamento para a direita. 
+//Em seguida, os valores das posições p1 a p2 são salvos em uma sequência temporária. 
+//Depois, os valores do vetor são deslocados para a direita a partir da posição p1. 
+//Por fim, os valores salvos na sequência temporária são inseridos nas novas posições.
+// Se não for possível realizar o deslocamento, a função retorna 0; caso contrário, retorna 1.
 
 
 
